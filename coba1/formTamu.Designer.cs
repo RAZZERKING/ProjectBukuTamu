@@ -164,6 +164,7 @@
             this.comboBoxWebcamList.Name = "comboBoxWebcamList";
             this.comboBoxWebcamList.Size = new System.Drawing.Size(241, 21);
             this.comboBoxWebcamList.TabIndex = 9;
+            this.comboBoxWebcamList.SelectionChangeCommitted += new System.EventHandler(this.comboBoxWebcamList_SelectionChangeCommitted);
             // 
             // formTamu
             // 

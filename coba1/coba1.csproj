@@ -36,13 +36,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge">
-      <HintPath>..\..\..\..\..\Downloads\New folder\Release\AForge.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\AForge.NET Framework-2.2.5-(libs only)\Release\AForge.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video">
-      <HintPath>..\..\..\..\..\Downloads\New folder\Release\AForge.Video.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\AForge.NET Framework-2.2.5-(libs only)\Release\AForge.Video.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video.DirectShow">
-      <HintPath>..\..\..\..\..\Downloads\New folder\Release\AForge.Video.DirectShow.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\AForge.NET Framework-2.2.5-(libs only)\Release\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
     <Reference Include="Emgu.CV, Version=4.7.0.5276, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
       <HintPath>..\packages\Emgu.CV.4.7.0.5276\lib\netstandard2.0\Emgu.CV.dll</HintPath>

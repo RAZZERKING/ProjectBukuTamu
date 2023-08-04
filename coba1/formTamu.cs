@@ -49,7 +49,7 @@ namespace coba1
         }
         void simpanFoto()
         {
-            string targetFolder = @"C:\Users\faiq\Pictures\tamu"; // Ganti dengan path folder tujuan Anda
+            string targetFolder = @"C:\Users\Admin\Pictures\New folder"; // Ganti dengan path folder tujuan Anda
 
             if (!Directory.Exists(targetFolder))
             {
@@ -97,6 +97,11 @@ namespace coba1
         private void button3_Click(object sender, EventArgs e)
         {
             simpanFoto();
+        }
+
+        private void comboBoxWebcamList_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            mulaiKamera();
         }
     }
 }
