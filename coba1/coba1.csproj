@@ -102,7 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auth.cs" />
-    <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="UserController.cs" />
     <Compile Include="mainMenu.cs">
       <SubType>Form</SubType>
     </Compile>

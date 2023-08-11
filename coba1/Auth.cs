@@ -17,22 +17,21 @@ namespace coba1
             return HashPassword == inputPassword;
         }
 
-        public void AuthUser(string username, string password)
+        public bool AuthUser(string username, string password)
         {
-            DatabaseHelper databaseHelper = new DatabaseHelper();
-            if(databaseHelper.isUsernameExist(username))
-            { 
+            UserController databaseHelper = new UserController();
+            if (databaseHelper.isUsernameExist(username))
+            {
                 User user = databaseHelper.getUserByUsername(username);
-                if(validatePassword(password, user.password))
+                if (validatePassword(password, user.password))
                 {
                     user.isAuth = true;
-                    MessageBox.Show("login berhasil");
+                    MessageBox.Show($"selamat datang {user.name}", "login berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
                 }
             }
-            else
-            {
-                MessageBox.Show("username tidak ditemukan");
-            }
+            MessageBox.Show("username tidak ditemukan");
+            return false;
         }
     }
 }

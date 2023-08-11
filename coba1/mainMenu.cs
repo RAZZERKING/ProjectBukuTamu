@@ -45,9 +45,13 @@ namespace coba1
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Auth auth = new Auth();
-            auth.AuthUser(txt_username.Text, txt_password.Text);
-
+            /*Auth auth = new Auth();
+            if(auth.AuthUser(txt_username.Text, txt_password.Text))
+            {
+                adminDashboard adminDashboard = new adminDashboard();
+                adminDashboard.Show();
+                this.Hide();
+            }*/
         }
     }
 }
