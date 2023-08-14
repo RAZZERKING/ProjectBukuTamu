@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace coba1
 {
-    internal class User
+    internal class Guest
     {
-        public string id, username, name, password, contact;
-        public bool isAuth = false;
+        public string id, name, instansi, contact, date, keperluan, penerimaTamu, foto;
     }
 }
