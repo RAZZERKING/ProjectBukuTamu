@@ -26,9 +26,43 @@ namespace coba1
                     command.Parameters.AddWithValue("@Username", username);
 
                     int count = (int)command.ExecuteScalar();
-                    return count > 0;
+                    return count > 0;   
                 }
             }
+        }
+
+        public bool searchDataUser(DataGridView dataGridView, string search)
+        {
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT * FROM admin WHERE username LIKE @Search or user_id LIKE @Search or name LIKE @Search or contact LIKE @search";
+                try
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Search","%" + search + "%");
+                        int count = (int)command.ExecuteScalar();
+                        if(count > 0)
+                        {
+                            using(SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection))
+                            {
+                                DataTable dataTable = new DataTable();
+                                dataAdapter.Fill(dataTable);
+                                dataGridView.DataSource = dataTable;
+                                dataGridView.AutoResizeColumns();
+                                dataGridView.AutoResizeRows();
+                                dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                                return true;
+                            }
+                        }
+                    }
+                }catch(Exception ex)
+                {
+                    return false;
+                }
+            }
+            return false;
         }
 
         public User getUserByUsername(string username)
@@ -61,7 +95,7 @@ namespace coba1
             return null;
         }
 
-        public bool getUserData(DataGridView dataGridView)
+        public bool displayUserData(DataGridView dataGridView)
         {
             using(SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -89,7 +123,7 @@ namespace coba1
             return false;
         }
 
-        public bool makeNewUser(string userId, string username, string password, string name, string contact = null)
+        public bool createNewUser(string userId, string username, string password, string name, string contact = null)
         {
             using(SqlConnection conn = new SqlConnection(connectionString))
             {

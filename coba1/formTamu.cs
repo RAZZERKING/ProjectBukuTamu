@@ -49,7 +49,7 @@ namespace coba1
         }
         void simpanFoto()
         {
-            string targetFolder = @"C:\Users\Admin\Pictures\New folder"; // Ganti dengan path folder tujuan Anda
+            string targetFolder = Application.StartupPath + "/foto_tamu/";
 
             if (!Directory.Exists(targetFolder))
             {
@@ -57,11 +57,16 @@ namespace coba1
                 return;
             }
 
-            string fileName = "foto_tamu_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg"; // Nama file dengan format timestamp
-
-            string filePath = Path.Combine(targetFolder, fileName);
-            pictureBox2.Image.Save(filePath, ImageFormat.Jpeg);
-            MessageBox.Show("Foto berhasil disimpan di folder tujuan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string fileName = "foto_tamu_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg";// Nama file dengan format timestamp
+            try
+            {
+                string filePath = Path.Combine(targetFolder, txt_fotoTamu.Text);
+                pictureBox2.Image.Save(filePath, ImageFormat.Jpeg);
+                MessageBox.Show("Foto berhasil disimpan di folder tujuan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }catch(Exception ex)
+            {
+                MessageBox.Show("ada yang salah dengan kamera", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
@@ -72,6 +77,7 @@ namespace coba1
 
         private void formTamu_Load(object sender, EventArgs e)
         {
+            dateTamu.Value = DateTime.Now;
             captureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach(FilterInfo deviceList in captureDevice)
             {
@@ -91,7 +97,21 @@ namespace coba1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            pictureBox2.Image = (Bitmap)pictureBox1.Image.Clone();
+            try
+            {
+                string fileName = "foto_tamu_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg";
+                txt_fotoTamu.Text = fileName;
+                if((Bitmap)pictureBox1.Image == null){
+                    MessageBox.Show("ada yang salah dengan kamera", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    pictureBox2.Image = (Bitmap)pictureBox1.Image.Clone();
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("ada yang salah dengan kamera", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -102,6 +122,11 @@ namespace coba1
         private void comboBoxWebcamList_SelectionChangeCommitted(object sender, EventArgs e)
         {
             mulaiKamera();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -19,7 +19,7 @@ namespace coba1
 
         private void login_Load(object sender, EventArgs e)
         {
-
+            //label1.Text = Application.StartupPath + "/ia";
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -36,22 +36,30 @@ namespace coba1
         private void btn_tamu_Click(object sender, EventArgs e)
         {
 
-            formTamu log = new formTamu();
-            log.Show(); 
-            this.Hide();
-
-
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            /*Auth auth = new Auth();
-            if(auth.AuthUser(txt_username.Text, txt_password.Text))
-            {
-                adminDashboard adminDashboard = new adminDashboard();
-                adminDashboard.Show();
-                this.Hide();
-            }*/
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            formTamu log = new formTamu();
+            log.Show();
+            this.Hide();
+        }
+
+        private void btn_signIn_Click(object sender, EventArgs e)
+        {
+            SignIn signIn = new SignIn();
+            signIn.Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
