@@ -11,7 +11,7 @@ namespace coba1
 {
     internal class GuestController
     {
-        private string connectionString = @"Data Source=LORDREVAN\SQLEXPRESS; Initial Catalog=basing;Integrated Security=true";
+        private string connectionString = @"Data Source=LORDREVAN\SQLEXPRESS; Initial Catalog=buku_tamu;Integrated Security=true";
 
         public Guest getGuestData(string id)
         {
@@ -107,11 +107,13 @@ namespace coba1
             return false;
         }
 
-        public bool createNewGuest(string id, string name, string instansi, string contact, string date, string keperluan, string penerimaTamu, string foto)
+        public bool createNewGuest(string name, string instansi, string contact, string date, string keperluan, string penerimaTamu, string foto)
         { 
+            IdGenerator idGenerator = new IdGenerator();
+            string id = idGenerator.idGenerator(connectionString, "guest", "G", "guest_id");
             using(SqlConnection conn = new SqlConnection(connectionString)) 
             {
-                conn .Open();
+                conn.Open();
                 if (id != null && name != null && instansi != null && contact != null && date != null && keperluan != null && penerimaTamu != null && foto != null)
                 {
                     string query = "INSERT INTO guest VALUES (@Id, @Name, @Instansi, @Contact, @Date, @Keperluan, @PenerimaTamu, @Foto)";

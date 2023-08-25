@@ -22,7 +22,9 @@ namespace coba1
             Auth auth = new Auth();
             if(auth.AuthUser(txt_username.Text, txt_password.Text))
             {
-                AdminDashboard adminDashboard = new AdminDashboard();
+                UserController userController = new UserController();
+                User user = userController.getUserByUsername(txt_username.Text);
+                AdminDashboard adminDashboard = new AdminDashboard(user.username, user.isAuth);
                 adminDashboard.Show();
                 this.Hide();
             }

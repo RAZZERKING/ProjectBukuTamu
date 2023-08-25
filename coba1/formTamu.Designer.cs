@@ -50,6 +50,7 @@
             this.btn_save = new System.Windows.Forms.Button();
             this.comboBoxWebcamList = new System.Windows.Forms.ComboBox();
             this.txt_fotoTamu = new System.Windows.Forms.TextBox();
+            this.btn_clear = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -343,11 +344,27 @@
             this.txt_fotoTamu.TabIndex = 11;
             this.txt_fotoTamu.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // btn_clear
+            // 
+            this.btn_clear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btn_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_clear.Location = new System.Drawing.Point(14, 358);
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.Size = new System.Drawing.Size(82, 33);
+            this.btn_clear.TabIndex = 12;
+            this.btn_clear.Text = "Clear";
+            this.btn_clear.UseVisualStyleBackColor = true;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
+            // 
             // formTamu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1455, 436);
+            this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.txt_fotoTamu);
             this.Controls.Add(this.comboBoxWebcamList);
             this.Controls.Add(this.btn_save);
@@ -396,5 +413,6 @@
         private System.Windows.Forms.TextBox txt_instansiTamu;
         private System.Windows.Forms.TextBox txt_namaTamu;
         private System.Windows.Forms.TextBox txt_fotoTamu;
+        private System.Windows.Forms.Button btn_clear;
     }
 }

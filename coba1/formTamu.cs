@@ -47,14 +47,14 @@ namespace coba1
             videoSource.NewFrame += new NewFrameEventHandler(VideoSource_NewFrame);
             videoSource.Start();
         }
-        void simpanFoto()
+        bool simpanFoto()
         {
             string targetFolder = Application.StartupPath + "/foto_tamu/";
 
             if (!Directory.Exists(targetFolder))
             {
                 MessageBox.Show("Folder tujuan tidak ditemukan.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
             string fileName = "foto_tamu_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg";// Nama file dengan format timestamp
@@ -62,12 +62,31 @@ namespace coba1
             {
                 string filePath = Path.Combine(targetFolder, txt_fotoTamu.Text);
                 pictureBox2.Image.Save(filePath, ImageFormat.Jpeg);
-                MessageBox.Show("Foto berhasil disimpan di folder tujuan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+                //MessageBox.Show("Foto berhasil disimpan di folder tujuan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }catch(Exception ex)
             {
                 MessageBox.Show("ada yang salah dengan kamera", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
+
+        private void clearForm(Control control)
+        {
+            foreach (Control c in control.Controls)
+            {
+                if (c is TextBox textBox)
+                {
+                    textBox.Clear();
+                }
+
+                if (c.HasChildren)
+                {
+                    clearForm(c);
+                }
+            }
+        }
+
 
         private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
@@ -116,7 +135,22 @@ namespace coba1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            simpanFoto();
+            //simpanFoto();
+            GuestController guestController = new GuestController();
+            try
+            {
+                bool createNewGuest = guestController.createNewGuest(txt_namaTamu.Text, txt_instansiTamu.Text, txt_contactTamu.Text, dateTamu.Value.ToString("yyyy-MM-dd HH:mm:ss"), txt_keperluanTamu.Text, txt_penerimaTamu.Text, txt_fotoTamu.Text);
+                if (createNewGuest && simpanFoto())
+                {
+                    //guestController.createNewGuest(txt_namaTamu.Text, txt_instansiTamu.Text, txt_contactTamu.Text, dateTamu.Value.ToString("yyyy-MM-dd HH:mm:ss"), txt_keperluanTamu.Text, txt_penerimaTamu.Text, txt_fotoTamu.Text
+                    MessageBox.Show("data berhasil dimasukkan \n Selamat Datang", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    clearForm(this);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void comboBoxWebcamList_SelectionChangeCommitted(object sender, EventArgs e)
@@ -127,6 +161,11 @@ namespace coba1
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            clearForm(this);
         }
     }
 }

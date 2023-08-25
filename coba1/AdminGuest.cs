@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace coba1
 {
-    public partial class AdminDashboard : Form
+    public partial class AdminGuest : Form
     {
-        public AdminDashboard(string username, bool isAuth)
+        public AdminGuest()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
