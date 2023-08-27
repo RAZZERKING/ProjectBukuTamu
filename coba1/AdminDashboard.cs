@@ -19,7 +19,9 @@ namespace coba1
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            AdminGuest adminGuest = new AdminGuest();
+            adminGuest.Show();
+            this.Hide();
         }
     }
 }

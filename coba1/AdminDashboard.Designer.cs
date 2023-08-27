@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_admin = new System.Windows.Forms.Button();
+            this.btn_guest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_admin
             // 
-            this.button1.Location = new System.Drawing.Point(47, 325);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(252, 73);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "USER";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_admin.Location = new System.Drawing.Point(47, 325);
+            this.btn_admin.Name = "btn_admin";
+            this.btn_admin.Size = new System.Drawing.Size(252, 73);
+            this.btn_admin.TabIndex = 0;
+            this.btn_admin.Text = "USER";
+            this.btn_admin.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btn_guest
             // 
-            this.button2.Location = new System.Drawing.Point(499, 325);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(252, 73);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "GUEST";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_guest.Location = new System.Drawing.Point(499, 325);
+            this.btn_guest.Name = "btn_guest";
+            this.btn_guest.Size = new System.Drawing.Size(252, 73);
+            this.btn_guest.TabIndex = 1;
+            this.btn_guest.Text = "GUEST";
+            this.btn_guest.UseVisualStyleBackColor = true;
+            this.btn_guest.Click += new System.EventHandler(this.button2_Click);
             // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_guest);
+            this.Controls.Add(this.btn_admin);
             this.Name = "AdminDashboard";
             this.Text = "AdminDashboard";
             this.ResumeLayout(false);
@@ -66,7 +66,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_admin;
+        private System.Windows.Forms.Button btn_guest;
     }
 }

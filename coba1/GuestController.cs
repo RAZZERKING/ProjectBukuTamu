@@ -15,44 +15,49 @@ namespace coba1
 
         public Guest getGuestData(string id)
         {
-            using(SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT * FROM guest WHERE id=@Id";
+
+                string query = "SELECT * FROM guest WHERE guest_id = @Id";
+
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@Id", id);
+
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if(reader.Read())
+                        if (reader.Read())
                         {
                             Guest guest = new Guest
                             {
-                                id = reader.GetString(0),
-                                name = reader.GetString(1),
-                                instansi = reader.GetString(2),
-                                contact = reader.GetString(3),
-                                date = reader.GetString(4),
-                                keperluan = reader.GetString(5),
-                                penerimaTamu = reader.GetString(6),
-                                foto = reader.GetString(7),
+                                id = reader.GetString(reader.GetOrdinal("guest_id")),
+                                name = reader.GetString(reader.GetOrdinal("name")),
+                                instansi = reader.GetString(reader.GetOrdinal("instansi")),
+                                contact = reader.GetString(reader.GetOrdinal("contact")),
+                                date = reader.GetDateTime(reader.GetOrdinal("date")).ToString(), // Assuming date is stored as DateTime
+                                keperluan = reader.GetString(reader.GetOrdinal("keperluan")),
+                                penerimaTamu = reader.GetString(reader.GetOrdinal("penerima_tamu")),
+                                foto = reader.GetString(reader.GetOrdinal("foto")),
                             };
                             return guest;
                         }
                     }
                 }
             }
+
             return null;
         }
 
+
         public bool displayGuestData(DataGridView dataGridView)
         {
-            using (SqlConnection conn = new SqlConnection())
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                conn .Open();
+                conn.Open();
                 if(dataGridView != null)
                 {
-                    string query = "SELECT id, name, date FROM guest";
+                    string query = "SELECT guest_id, name, date FROM guest";
                     try
                     {
                         using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
