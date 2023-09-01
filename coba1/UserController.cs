@@ -12,7 +12,7 @@ namespace coba1
 {
     class UserController
     {
-        private string connectionString = @"Data Source=LORDREVAN\SQLEXPRESS; Initial Catalog=buku_tamu;Integrated Security=true";
+        private string connectionString = @"Data Source=DESKTOP-O05793E\SQLEXPRESS; Initial Catalog=buku_tamu;Integrated Security=true";
 
         public bool isUsernameExist(string username)
         {

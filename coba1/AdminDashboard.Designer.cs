@@ -34,12 +34,13 @@
             // 
             // btn_admin
             // 
-            this.btn_admin.Location = new System.Drawing.Point(47, 325);
+            this.btn_admin.Location = new System.Drawing.Point(52, 325);
             this.btn_admin.Name = "btn_admin";
             this.btn_admin.Size = new System.Drawing.Size(252, 73);
             this.btn_admin.TabIndex = 0;
             this.btn_admin.Text = "USER";
             this.btn_admin.UseVisualStyleBackColor = true;
+            this.btn_admin.Click += new System.EventHandler(this.btn_admin_Click);
             // 
             // btn_guest
             // 

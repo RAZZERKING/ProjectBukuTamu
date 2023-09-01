@@ -18,7 +18,7 @@ namespace coba1
             InitializeComponent();
         }
         GuestController guestController = new GuestController();
-
+        Guest guest;
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -38,7 +38,7 @@ namespace coba1
             int row = e.RowIndex;
             string guest_id = dgv_guest.Rows[row].Cells["guest_id"].Value.ToString();
             string imagePath = Application.StartupPath + "/foto_tamu/";
-            Guest guest = guestController.getGuestData(guest_id);
+            guest = guestController.getGuestData(guest_id);
             if (guest != null)
             {
                 txt_guestId.Text = guest.id;
@@ -58,6 +58,45 @@ namespace coba1
                 //string path = imagePath + guest.foto;
                 pct_guest.Image = Image.FromFile(Path.Combine(imagePath, guest.foto));
             }
+        }
+
+        private void txt_guestId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_guest_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            bool delete = guestController.deleteGuestData(guest.id);
+            if (delete)
+            {
+                MessageBox.Show("Data Berhasil dihapus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Data gagal dihapus!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
+
         }
     }
 }
