@@ -36,13 +36,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge">
-      <HintPath>..\..\..\Documents\AForge.NET Framework-2.2.5-(libs only)\Release\AForge.dll</HintPath>
+      <HintPath>..\..\..\..\..\Downloads\New folder\Release\AForge.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video">
-      <HintPath>..\..\..\Documents\AForge.NET Framework-2.2.5-(libs only)\Release\AForge.Video.dll</HintPath>
+      <HintPath>..\..\..\..\..\Downloads\New folder\Release\AForge.Video.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video.DirectShow">
-      <HintPath>..\..\..\Documents\AForge.NET Framework-2.2.5-(libs only)\Release\AForge.Video.DirectShow.dll</HintPath>
+      <HintPath>..\..\..\..\..\Downloads\New folder\Release\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
     <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
@@ -113,6 +113,12 @@
     <Compile Include="AdminGuest.Designer.cs">
       <DependentUpon>AdminGuest.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminUser.Designer.cs">
+      <DependentUpon>AdminUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Auth.cs" />
     <Compile Include="Guest.cs" />
     <Compile Include="GuestController.cs" />
@@ -122,6 +128,12 @@
     </Compile>
     <Compile Include="SignIn.Designer.cs">
       <DependentUpon>SignIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserADD.Designer.cs">
+      <DependentUpon>UserADD.cs</DependentUpon>
     </Compile>
     <Compile Include="UserController.cs" />
     <Compile Include="mainMenu.cs">
@@ -139,11 +151,20 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserEdit.Designer.cs">
+      <DependentUpon>UserEdit.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminGuest.resx">
       <DependentUpon>AdminGuest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUser.resx">
+      <DependentUpon>AdminUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainMenu.resx">
       <DependentUpon>mainMenu.cs</DependentUpon>
@@ -162,6 +183,12 @@
     </Compile>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserADD.resx">
+      <DependentUpon>UserADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserEdit.resx">
+      <DependentUpon>UserEdit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />

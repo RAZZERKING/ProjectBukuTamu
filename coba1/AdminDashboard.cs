@@ -23,5 +23,12 @@ namespace coba1
             adminGuest.Show();
             this.Hide();
         }
+
+        private void btn_admin_Click(object sender, EventArgs e)
+        {
+            AdminUser adminUser = new AdminUser();
+            adminUser.Show();
+            this.Hide();
+        }
     }
 }

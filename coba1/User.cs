@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace coba1
 {
-    internal class User
+    public class User
     {
         public string id, username, name, password, contact;
         public bool isAuth = false;

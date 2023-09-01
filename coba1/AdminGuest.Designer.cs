@@ -45,9 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txt_date = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_guest)).BeginInit();
@@ -64,6 +62,7 @@
             this.dgv_guest.Size = new System.Drawing.Size(334, 513);
             this.dgv_guest.TabIndex = 0;
             this.dgv_guest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_guest_CellClick);
+            this.dgv_guest.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_guest_CellContentClick);
             // 
             // textBox1
             // 
@@ -72,6 +71,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(261, 26);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -82,6 +82,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Cari";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pct_guest
             // 
@@ -189,6 +190,7 @@
             this.txt_guestId.Text = "A";
             this.txt_guestId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_guestId.Visible = false;
+            this.txt_guestId.Click += new System.EventHandler(this.txt_guestId_Click);
             // 
             // label7
             // 
@@ -256,35 +258,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Guest Id";
             // 
-            // button2
+            // btn_delete
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(477, 519);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Cari";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(883, 519);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 28);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Cari";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(680, 519);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 28);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Cari";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete.Location = new System.Drawing.Point(883, 519);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(100, 28);
+            this.btn_delete.TabIndex = 6;
+            this.btn_delete.Text = "Delete";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // groupBox2
             // 
@@ -314,9 +297,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1328, 587);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pct_guest);
             this.Controls.Add(this.button1);
@@ -345,9 +326,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label txt_guestId;
         private System.Windows.Forms.Label label7;
