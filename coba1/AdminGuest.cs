@@ -58,6 +58,7 @@ namespace coba1
                 //string path = imagePath + guest.foto;
                 pct_guest.Image = Image.FromFile(Path.Combine(imagePath, guest.foto));
             }
+           
         }
 
         private void txt_guestId_Click(object sender, EventArgs e)

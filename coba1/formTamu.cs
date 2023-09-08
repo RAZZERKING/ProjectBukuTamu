@@ -28,7 +28,7 @@ namespace coba1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            videoSource.SignalToStop();
             mainMenu login = new mainMenu();
             login.Show();
             this.Hide();
@@ -145,6 +145,7 @@ namespace coba1
                     //guestController.createNewGuest(txt_namaTamu.Text, txt_instansiTamu.Text, txt_contactTamu.Text, dateTamu.Value.ToString("yyyy-MM-dd HH:mm:ss"), txt_keperluanTamu.Text, txt_penerimaTamu.Text, txt_fotoTamu.Text
                     MessageBox.Show("data berhasil dimasukkan \n Selamat Datang", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     clearForm(this);
+
                 }
             }
             catch(Exception ex)
@@ -166,6 +167,16 @@ namespace coba1
         private void btn_clear_Click(object sender, EventArgs e)
         {
             clearForm(this);
+        }
+
+        private void formTamu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            videoSource.SignalToStop();
+        }
+
+        private void formTamu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            videoSource.SignalToStop();
         }
     }
 }

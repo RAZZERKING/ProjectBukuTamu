@@ -20,15 +20,41 @@ namespace coba1
         User user;
         private void btn_update_Click(object sender, EventArgs e)
         {
-            bool add = userController.createNewUser(user.id, txt_name.Text, txt_name.Text, txt_password.Text, txt_contact.Text);
-            if (add)
+                // Initialize the user object
+            try
             {
+                bool add = userController.createNewUser(txt_username.Text, txt_name.Text, txt_password.Text, txt_contact.Text);
+                if (!add)
+                {
+                    MessageBox.Show("Data gagal disimpan!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                this.Close();
+                
                 MessageBox.Show("Data berhasil disimpan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                
+           
             }
-            else
+            catch (NullReferenceException ex)
             {
-                MessageBox.Show("Data gagal disimpan", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+       
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_name_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

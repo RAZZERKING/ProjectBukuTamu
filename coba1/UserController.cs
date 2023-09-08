@@ -12,7 +12,7 @@ namespace coba1
 {
     class UserController
     {
-        private string connectionString = @"Data Source=DESKTOP-O05793E\SQLEXPRESS; Initial Catalog=buku_tamu;Integrated Security=true";
+        public string connectionString = @"Data Source=DESKTOP-O05793E\SQLEXPRESS; Initial Catalog=buku_tamu;Integrated Security=true";
 
         public bool isUsernameExist(string username)
         {
@@ -65,6 +65,23 @@ namespace coba1
             return false;
         }
 
+        public bool isIdExist(string userid)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sqlQuery = $"SELECT COUNT(*) FROM admin WHERE user_id=@Userid";
+                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@Userid", userid);
+
+                    int count = (int)command.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
+
         public User getUserByUsername(string username)
         {
             using(SqlConnection connection = new SqlConnection(connectionString))
@@ -102,7 +119,7 @@ namespace coba1
                 conn.Open();
                 if(dataGridView != null)
                 {
-                    string query = "SELECT * FROM admin";
+                    string query = "SELECT user_id, username FROM admin";
                     try
                     {
                         using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
@@ -123,29 +140,32 @@ namespace coba1
             return false;
         }
 
-        public bool createNewUser(string userId, string username, string password, string name, string contact = null)
+        public bool createNewUser(string username, string name, string password, string contact = null)
         {
             using(SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                if(userId != null &&  username != null && password != null && name != null)
+                if(username != null && password != null && name != null)
                 {
-                    if (!isUsernameExist(username))
+                    if (isUsernameExist(username))
                     {
+                        IdGenerator idgen = new IdGenerator();
                         string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+                        string id = idgen.idGenerator(connectionString, "admin", "U", "user_id");
                         string query = $"INSERT INTO admin VALUES (@UserId, @Username, @Name, @Password, @Contact)";
                         try
                         {
                             using (SqlCommand command = new SqlCommand(query, conn))
                             {
-                                command.Parameters.AddWithValue("@UserId", userId);
+                                command.Parameters.AddWithValue("@Userid", id);
                                 command.Parameters.AddWithValue("@Username", username);
-                                command.Parameters.AddWithValue("@Password", hashedPassword);
                                 command.Parameters.AddWithValue("@Name", name);
+                                command.Parameters.AddWithValue("@Password", hashedPassword);
                                 command.Parameters.AddWithValue("@Contact", contact);
                                 command.ExecuteNonQuery();
                                 return true;
                             }
+
                         }catch (Exception ex)
                         {
                             return false;
@@ -161,9 +181,9 @@ namespace coba1
             using(SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                if(userId != null && username != null && name != null)
+                if(userId != String.Empty && username != String.Empty && name != String.Empty)
                 {
-                    if (!isUsernameExist(username))
+                    if (isIdExist(userId))
                     {
                         string query = "UPDATE admin SET username=@Username, name=@Name, contact=@Contact WHERE user_id=@UserId";
                         try
@@ -183,8 +203,8 @@ namespace coba1
                         }
                     }
                 }
+                return false;
             }
-            return false;
         }
 
         public bool deleteUser(string userId)
@@ -203,6 +223,7 @@ namespace coba1
                             command.ExecuteNonQuery();
                             return true;
                         }
+
                     }catch (Exception ex)
                     {
                         return false;

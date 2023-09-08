@@ -30,5 +30,10 @@ namespace coba1
             adminUser.Show();
             this.Hide();
         }
+
+        private void AdminDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
