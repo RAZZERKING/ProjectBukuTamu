@@ -48,37 +48,52 @@
             this.btn_delete = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txt_date = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_guest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pct_guest)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgv_guest
             // 
             this.dgv_guest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_guest.Location = new System.Drawing.Point(989, 52);
+            this.dgv_guest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_guest.Location = new System.Drawing.Point(0, 32);
             this.dgv_guest.Name = "dgv_guest";
-            this.dgv_guest.Size = new System.Drawing.Size(334, 513);
+            this.dgv_guest.Size = new System.Drawing.Size(374, 492);
             this.dgv_guest.TabIndex = 0;
             this.dgv_guest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_guest_CellClick);
             this.dgv_guest.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_guest_CellContentClick);
             // 
             // textBox1
             // 
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(989, 20);
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(261, 26);
+            this.textBox1.Size = new System.Drawing.Size(374, 26);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1256, 18);
+            this.button1.Location = new System.Drawing.Point(307, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(67, 28);
+            this.button1.Size = new System.Drawing.Size(67, 32);
             this.button1.TabIndex = 2;
             this.button1.Text = "Cari";
             this.button1.UseVisualStyleBackColor = true;
@@ -86,12 +101,10 @@
             // 
             // pct_guest
             // 
-            this.pct_guest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pct_guest.Location = new System.Drawing.Point(477, 20);
+            this.pct_guest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pct_guest.Location = new System.Drawing.Point(0, 0);
             this.pct_guest.Name = "pct_guest";
-            this.pct_guest.Size = new System.Drawing.Size(497, 326);
+            this.pct_guest.Size = new System.Drawing.Size(496, 335);
             this.pct_guest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pct_guest.TabIndex = 3;
             this.pct_guest.TabStop = false;
@@ -111,10 +124,11 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(13, 14);
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(458, 545);
+            this.groupBox1.Size = new System.Drawing.Size(458, 587);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Guest Data";
@@ -261,7 +275,7 @@
             // btn_delete
             // 
             this.btn_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete.Location = new System.Drawing.Point(883, 519);
+            this.btn_delete.Location = new System.Drawing.Point(271, 6);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(100, 28);
             this.btn_delete.TabIndex = 6;
@@ -272,37 +286,94 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txt_date);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBox2.Location = new System.Drawing.Point(477, 352);
+            this.groupBox2.Location = new System.Drawing.Point(0, 335);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(506, 133);
+            this.groupBox2.Size = new System.Drawing.Size(496, 252);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "TimeStamp";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // txt_date
             // 
             this.txt_date.AutoSize = true;
             this.txt_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.txt_date.Location = new System.Drawing.Point(200, 53);
+            this.txt_date.Location = new System.Drawing.Point(28, 107);
             this.txt_date.Name = "txt_date";
             this.txt_date.Size = new System.Drawing.Size(89, 39);
             this.txt_date.TabIndex = 5;
             this.txt_date.Text = "Date";
             this.txt_date.Visible = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(458, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(870, 587);
+            this.panel1.TabIndex = 5;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.panel6);
+            this.panel5.Controls.Add(this.groupBox2);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(496, 587);
+            this.panel5.TabIndex = 1;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.pct_guest);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(496, 335);
+            this.panel6.TabIndex = 6;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dgv_guest);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(496, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(374, 587);
+            this.panel2.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(374, 32);
+            this.panel4.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btn_delete);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 524);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(374, 63);
+            this.panel3.TabIndex = 0;
+            // 
             // AdminGuest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1328, 587);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.btn_delete);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.pct_guest);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dgv_guest);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminGuest";
             this.Text = "AdminGuest";
             this.Load += new System.EventHandler(this.AdminGuest_Load);
@@ -312,8 +383,14 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -339,5 +416,11 @@
         private System.Windows.Forms.Label txt_contact;
         private System.Windows.Forms.Label txt_instansi;
         private System.Windows.Forms.Label txt_name;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
     }
 }

@@ -29,8 +29,8 @@ namespace coba1
         private void button1_Click(object sender, EventArgs e)
         {
             videoSource.SignalToStop();
-            mainMenu login = new mainMenu();
-            login.Show();
+            mainMenu mainMenu = new mainMenu();
+            mainMenu.Show();
             this.Hide();
 
         }
@@ -64,7 +64,7 @@ namespace coba1
                 pictureBox2.Image.Save(filePath, ImageFormat.Jpeg);
                 return true;
                 //MessageBox.Show("Foto berhasil disimpan di folder tujuan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }catch(Exception ex)
+            }catch(Exception)
             {
                 MessageBox.Show("ada yang salah dengan kamera", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -127,7 +127,7 @@ namespace coba1
                 {
                     pictureBox2.Image = (Bitmap)pictureBox1.Image.Clone();
                 }
-            }catch(Exception ex)
+            }catch(Exception)
             {
                 MessageBox.Show("ada yang salah dengan kamera", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

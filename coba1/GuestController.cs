@@ -11,7 +11,7 @@ namespace coba1
 {
     internal class GuestController
     {
-        private string connectionString = @"Data Source=DESKTOP-O05793E\SQLEXPRESS; Initial Catalog=buku_tamu;Integrated Security=true";
+        private string connectionString = @"Data Source=LORDREVAN\SQLEXPRESS; Initial Catalog=buku_tamu;Integrated Security=true";
 
         public Guest getGuestData(string id)
         {
@@ -69,7 +69,7 @@ namespace coba1
                             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                             return true;
                         }
-                    }catch (Exception ex)
+                    }catch (Exception)
                     {
                         return false;
                     }
@@ -104,7 +104,7 @@ namespace coba1
                             }
                         }
                     }
-                }catch(Exception ex)
+                }catch(Exception)
                 {
                     return false;
                 }
@@ -137,7 +137,7 @@ namespace coba1
                             command.ExecuteNonQuery();
                             return true;
                         }
-                    }catch (Exception ex)
+                    }catch (Exception)
                     {
                         return false;
                     }
@@ -160,7 +160,7 @@ namespace coba1
                         command.ExecuteNonQuery();
                         return true;
                     }
-                }catch(Exception ex)
+                }catch(Exception)
                 {
                     return false;
                 }
